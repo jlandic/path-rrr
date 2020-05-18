@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/menus/LoginScreen.gd" type="Script" id=1]
+[ext_resource path="res://scripts/GameData.gd" type="Script" id=2]
+[ext_resource path="res://resources/art/gui/arrow_01d.png" type="Texture" id=3]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=4]
+
+[node name="LoginScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -100.0
+margin_right = 300.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Email" type="LineEdit" parent="VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 28.0
+align = 1
+placeholder_text = "email"
+
+[node name="Password" type="LineEdit" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 600.0
+margin_bottom = 60.0
+align = 1
+secret = true
+placeholder_text = "password"
+
+[node name="Login" type="Button" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 600.0
+margin_bottom = 88.0
+text = "LOGIN"
+
+[node name="Notification" type="Label" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 600.0
+margin_bottom = 110.0
+align = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="BackButton" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_Login_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

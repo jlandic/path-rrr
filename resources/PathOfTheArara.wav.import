@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PathOfTheArara.wav-adc3fd43405e796c5e1d9d04cec31e5b.sample"
+
+[deps]
+
+source_file="res://resources/PathOfTheArara.wav"
+dest_files=[ "res://.import/PathOfTheArara.wav-adc3fd43405e796c5e1d9d04cec31e5b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

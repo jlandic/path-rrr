@@ -1,0 +1,170 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/menus/RegisterScreen.gd" type="Script" id=1]
+[ext_resource path="res://scripts/GameData.gd" type="Script" id=2]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=3]
+
+
+[node name="RegisterScreen" type="Control"]
+anchor_top = 0.00234044
+anchor_right = 1.0
+anchor_bottom = 1.00234
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -50.0
+margin_right = 200.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 28.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Username"]
+margin_left = 122.0
+margin_top = 5.0
+margin_right = 191.0
+margin_bottom = 23.0
+text = "Email: "
+valign = 1
+uppercase = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Username"]
+margin_left = 195.0
+margin_right = 277.0
+margin_bottom = 28.0
+align = 1
+expand_to_text_length = true
+placeholder_text = "email"
+
+[node name="Nickname" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 400.0
+margin_bottom = 60.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Nickname"]
+margin_left = 101.0
+margin_top = 5.0
+margin_right = 212.0
+margin_bottom = 23.0
+text = "Nickname: "
+valign = 1
+uppercase = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Nickname"]
+margin_left = 216.0
+margin_right = 298.0
+margin_bottom = 28.0
+align = 1
+expand_to_text_length = true
+placeholder_text = "nickname"
+
+[node name="LuckyNumber" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 400.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/LuckyNumber"]
+margin_left = 79.0
+margin_top = 5.0
+margin_right = 235.0
+margin_bottom = 23.0
+text = "Lucky Number: "
+valign = 1
+uppercase = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/LuckyNumber"]
+margin_left = 239.0
+margin_right = 321.0
+margin_bottom = 28.0
+align = 1
+expand_to_text_length = true
+placeholder_text = "1234"
+
+[node name="Password" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 400.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Password"]
+margin_left = 99.0
+margin_top = 5.0
+margin_right = 215.0
+margin_bottom = 23.0
+text = "Password: "
+valign = 1
+uppercase = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Password"]
+margin_left = 219.0
+margin_right = 301.0
+margin_bottom = 28.0
+secret = true
+expand_to_text_length = true
+
+[node name="PasswordConfirm" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 128.0
+margin_right = 400.0
+margin_bottom = 156.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/PasswordConfirm"]
+margin_left = 22.0
+margin_top = 5.0
+margin_right = 292.0
+margin_bottom = 23.0
+text = "Password confirmation: "
+valign = 1
+uppercase = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/PasswordConfirm"]
+margin_left = 296.0
+margin_right = 378.0
+margin_bottom = 28.0
+secret = true
+expand_to_text_length = true
+
+[node name="Register" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 160.0
+margin_right = 400.0
+margin_bottom = 184.0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Register"]
+margin_left = 145.0
+margin_right = 254.0
+margin_bottom = 24.0
+text = "REGISTER"
+
+[node name="Notification" type="Label" parent="VBoxContainer"]
+margin_top = 188.0
+margin_right = 400.0
+margin_bottom = 206.0
+align = 1
+valign = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="CreateUserInfo" type="HTTPRequest" parent="."]
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource( 2 )
+[connection signal="pressed" from="VBoxContainer/Register/Button" to="." method="_on_Button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="CreateUserInfo" to="." method="_on_CreateUserInfo_request_completed"]

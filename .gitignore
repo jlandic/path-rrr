@@ -1,0 +1,5 @@
+builds/
+config/config.json
+config/path.json
+
+.DS_Store
